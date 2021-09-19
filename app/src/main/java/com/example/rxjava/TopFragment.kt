@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit
 class TopFragment: BaseFragment<FragmentTopBinding>() {
     override val LOG_TAG = "TOP_FRAGMENT"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentTopBinding = FragmentTopBinding::inflate
-    private val compositeDisposable : CompositeDisposable = CompositeDisposable()
     override fun setup() {
         observeDataOnEditText()
     }
@@ -37,10 +36,6 @@ class TopFragment: BaseFragment<FragmentTopBinding>() {
         binding?.textView?.text = term
     }
 
-    override fun onDestroy() {
-        compositeDisposable.dispose()
-        super.onDestroy()
-    }
 }
 
 private fun Disposable.add(compositeDisposable: CompositeDisposable) {

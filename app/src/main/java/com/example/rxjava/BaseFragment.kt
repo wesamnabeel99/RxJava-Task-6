@@ -8,12 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 abstract class BaseFragment<VB: ViewBinding> : Fragment() {
 
 
     //region initialize variables
-    internal lateinit var MyDialog: Dialog
+    val compositeDisposable  = CompositeDisposable()
     abstract val LOG_TAG : String
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean ) -> VB
     private var _binding: ViewBinding? = null
@@ -45,6 +46,11 @@ abstract class BaseFragment<VB: ViewBinding> : Fragment() {
 
     protected fun log(value: String){
         Log.v(LOG_TAG,value)
+    }
+
+    override fun onDestroy() {
+        compositeDisposable.dispose()
+        super.onDestroy()
     }
 
 
