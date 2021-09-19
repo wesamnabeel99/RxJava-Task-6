@@ -35,12 +35,12 @@ abstract class BaseFragment<VB: ViewBinding> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        addCallbacks()
+        setup()
     }
     //endregion
 
     //region abstract functions
-    abstract fun addCallbacks()
+    abstract fun setup()
     //endregion
 
     protected fun log(value: String){

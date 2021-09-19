@@ -8,6 +8,6 @@ class BottomFragment:BaseFragment<FragmentBottomBinding>() {
     override val LOG_TAG = "BOTTOM_FRAGMENT"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentBottomBinding = FragmentBottomBinding::inflate
 
-    override fun addCallbacks() {
+    override fun setup() {
     }
 }
