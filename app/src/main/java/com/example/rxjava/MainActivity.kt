@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setup() {
         addFragment(topFragment,R.id.fragment_container)
+        BottomFragment.newInstance("hello")
         addFragment(bottomFragment,R.id.fragment_container_two)
-
     }
 
-    private fun addFragment(fragment: Fragment,id:Int) {
+    public fun addFragment(fragment: Fragment,id:Int) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(id,fragment)
         transaction.commit()
