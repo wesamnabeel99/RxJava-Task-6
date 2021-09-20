@@ -40,9 +40,6 @@ class TopFragment: BaseFragment<FragmentTopBinding>() {
 
     }
 
-    private fun bindTheText(term: String) {
-        binding?.textView?.text = term
-    }
 
 
 }
