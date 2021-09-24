@@ -2,6 +2,7 @@ package com.example.rxjava
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.rxjava.databinding.FragmentBottomBinding
 
@@ -12,8 +13,8 @@ class BottomFragment:BaseFragment<FragmentBottomBinding>() {
     override fun setup() {
         }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val result = it.getString(Constants.KEY_NAME)
             binding?.textView?.text =result
@@ -21,13 +22,11 @@ class BottomFragment:BaseFragment<FragmentBottomBinding>() {
     }
     companion object {
         fun newInstance(name:String):BottomFragment {
-
             return BottomFragment().apply {
                 arguments=Bundle().apply {
                     putString(Constants.KEY_NAME,name)
                 }
             }
-
         }
     }
 }
