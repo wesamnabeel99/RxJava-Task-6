@@ -44,7 +44,7 @@ abstract class BaseFragment<VB: ViewBinding> : Fragment() {
     abstract fun setup()
     //endregion
 
-    protected fun log(value: Any){
+    protected fun log(value: Any?){
         Log.v(LOG_TAG,value.toString())
     }
 

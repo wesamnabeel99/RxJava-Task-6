@@ -58,7 +58,7 @@ class TopFragment(private val messanger:Messenger): BaseFragment<FragmentTopBind
 
     private fun sendData(textFromEditText: String?) {
         textFromEditText?.let {
-            messanger.sendData(textFromEditText)
+            messanger.sendData(it)
         }
     }
     /**
@@ -69,7 +69,7 @@ class TopFragment(private val messanger:Messenger): BaseFragment<FragmentTopBind
      */
 
     private fun sendError(throwable: Throwable?) {
-        log(throwable.toString())
+        log(throwable)
     }
 
     //endregion
