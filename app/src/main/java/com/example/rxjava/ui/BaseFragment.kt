@@ -1,6 +1,5 @@
-package com.example.rxjava
+package com.example.rxjava.ui
 
-import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -44,10 +43,11 @@ abstract class BaseFragment<VB: ViewBinding> : Fragment() {
     abstract fun setup()
     //endregion
 
-    protected fun log(value: String){
-        Log.v(LOG_TAG,value)
+    protected fun log(value: Any?){
+        Log.v(LOG_TAG,value.toString())
     }
 
+    //for all the child fragments, on destroy dispose the observables
     override fun onDestroy() {
         compositeDisposable.dispose()
         super.onDestroy()
